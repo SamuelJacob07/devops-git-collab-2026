@@ -1,0 +1,11 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>DevOps Git Collaboration Project</title>
+</head>
+<body>
+    <h1>DevOps Batch - Git Collaboration Project</h1>
+    <ul id="student-list">
+    </ul>
+</body>
+</html>
