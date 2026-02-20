@@ -1,0 +1,78 @@
+Hi everyone 👋
+
+I’ve set up a **Git Collaboration Project** for our DevOps batch.
+
+🧠 **Idea:**
+We’ll have one shared home page and individual pages for each participant, so everyone can contribute safely without overwriting others’ work.
+
+📌 **How to contribute (IMPORTANT):**
+
+1. Clone the repo
+2. Create **your own HTML file** inside the `participants/` folder
+   (example: `participants/yourname.html`)
+3. Add **ONE card/link** with your name in `index.html`
+4. Do **NOT** edit or delete other content
+5. Commit with a clear message
+   (example: `Added my DevOps profile page`)
+6. Push after pulling latest changes
+
+🎯 This helps us practice:
+
+* Git collaboration
+* Conflict avoidance
+* Real DevOps team workflow
+
+## ▶️ How to Run and View the Project
+
+This project is a static website and must be accessed through an HTTP server for proper navigation.
+
+### 🔧 Prerequisites
+
+* Git installed
+* Python 3 installed (available by default on most Linux/macOS systems)
+
+---
+
+### 🚀 Steps to Run Locally
+
+1. **Clone the repository**
+
+```bash
+git clone <repository-url>
+cd devops-git-collab-2026
+```
+
+2. **Start a local web server**
+
+```bash
+python3 -m http.server 8000
+```
+
+3. **Open the website in a browser**
+
+```
+http://localhost:8000
+```
+
+---
+
+### ✅ What to Verify
+
+* The **Home page (`index.html`)** loads correctly
+* Clicking on a participant card opens the individual page
+* Clicking **“Back to Home”** returns to the main page
+
+> ⚠️ **Note:**
+> Do not open `index.html` directly using the file explorer (`file://`).
+> Always use the local server to ensure correct navigation.
+
+---
+
+### 🌐 (Optional) Hosting
+
+For personal testing or demos, contributors may fork the repository and enable GitHub Pages on their own fork.
+Do not enable hosting on the shared repository.
+
+
+Let’s keep it clean and professional 💪
+If you have doubts, ask before pushing 👍

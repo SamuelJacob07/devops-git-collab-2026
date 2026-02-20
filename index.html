@@ -1,11 +1,1012 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>DevOps Git Collaboration Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DevOps Git Collaboration Project 2026</title>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Bebas+Neue&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+    
+        /* 
+
+=========================================== PLEASE   READ  THE  COMMENT COMPLETLEY PLEASE ============================================
+
+DevOps Batch - Git Collaboration Project 2026
+
+Idea:
+This project is designed to demonstrate Git collaboration.
+Each participant creates their own HTML page inside the
+'participants/' folder and links it here.
+
+Rules:
+- Do not delete existing content
+- Add only ONE block with your name
+- Do not edit other participants' files
+-->
+<!--
+EXAMPLE:
+
+repo-root/
+├── index.html                # Home page (shared)
+├── participants/             # Individual pages
+│   ├── vignesh.html
+│   ├── balaji 2.html
+│   ├── colleague 3.html
+│   └── ...
+└── README.md
+
+
+
+
+IMPORTANT NOTE : LISTEN -----------------------------
+
+I have added my card section in the line "874 to 884"  Add yours next to it or before to  It your wish
+
+All the best Guys
+
+/*====== RESET & ROOT ============ */
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --bg: #050a0e;
+            --surface: #0c1621;
+            --surface2: #111d2b;
+            --border: #1a3045;
+            --accent: #00d4ff;
+            --accent2: #ff6b35;
+            --accent3: #39ff14;
+            --text: #e8f4f8;
+            --muted: #5a8fa8;
+            --card-glow: rgba(0, 212, 255, 0.08);
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            background: var(--bg);
+            color: var(--text);
+            font-family: 'DM Sans', sans-serif;
+            min-height: 100vh;
+            overflow-x: hidden;
+            cursor: none;
+        }
+
+        /* ============ CUSTOM CURSOR ============ */
+        .cursor {
+            position: fixed;
+            width: 12px; height: 12px;
+            background: var(--accent);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9999;
+            transition: transform 0.1s, opacity 0.2s;
+            mix-blend-mode: screen;
+        }
+        .cursor-ring {
+            position: fixed;
+            width: 36px; height: 36px;
+            border: 1px solid rgba(0,212,255,0.4);
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 9998;
+            transition: transform 0.15s ease, width 0.3s, height 0.3s;
+        }
+        .cursor.hover { transform: scale(2.5); }
+        .cursor-ring.hover { width: 52px; height: 52px; border-color: var(--accent2); }
+
+        /* ============ GRID BACKGROUND ============ */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(0,212,255,0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(0,212,255,0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* ============ SCANLINE OVERLAY ============ */
+        body::after {
+            content: '';
+            position: fixed;
+            inset: 0;
+            background: repeating-linear-gradient(
+                0deg,
+                transparent,
+                transparent 2px,
+                rgba(0,0,0,0.03) 2px,
+                rgba(0,0,0,0.03) 4px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        /* ============ LAYOUT ============ */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
+        }
+
+        /* ============ HEADER ============ */
+        header {
+            position: relative;
+            padding: 3rem 0 1rem;
+            text-align: center;
+            overflow: hidden;
+        }
+
+        .header-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(0,212,255,0.06);
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 100px;
+            padding: 0.4rem 1.2rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            margin-bottom: 1.5rem;
+            animation: fadeSlideDown 0.8s ease both;
+        }
+        .badge-dot {
+            width: 6px; height: 6px;
+            background: var(--accent3);
+            border-radius: 50%;
+            animation: pulse 1.5s ease infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.4; transform: scale(0.7); }
+        }
+
+        .hero-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(3.5rem, 8vw, 8rem);
+            line-height: 0.9;
+            letter-spacing: 0.02em;
+            animation: fadeSlideDown 0.9s 0.1s ease both;
+            position: relative;
+        }
+        .hero-title .line1 { display: block; color: var(--text); }
+        .hero-title .line2 {
+            display: block;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-title .line3 { display: block; color: var(--muted); font-size: 0.5em; letter-spacing: 0.25em; }
+
+        .hero-sub {
+            max-width: 600px;
+            margin: 2rem auto 0;
+            font-size: 1.05rem;
+            line-height: 1.7;
+            color: var(--muted);
+            font-weight: 300;
+            animation: fadeSlideDown 1s 0.2s ease both;
+        }
+        .hero-sub span { color: var(--accent); font-weight: 500; }
+
+        /* ============ STATS BAR ============ */
+        .stats-bar {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            margin: 3rem 0 1rem;
+            animation: fadeSlideDown 1s 0.3s ease both;
+            flex-wrap: wrap;
+        }
+        .stat {
+            padding: 1.2rem 2.5rem;
+            border: 1px solid var(--border);
+            text-align: center;
+            position: relative;
+            transition: all 0.3s;
+        }
+        .stat:not(:last-child) { border-right: none; }
+        .stat:first-child { border-radius: 8px 0 0 8px; }
+        .stat:last-child { border-radius: 0 8px 8px 0; }
+        .stat:hover {
+            background: var(--card-glow);
+            border-color: var(--accent);
+            z-index: 1;
+        }
+        .stat-value {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.4rem;
+            line-height: 1;
+            color: var(--accent);
+            display: block;
+        }
+        .stat-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-top: 0.3rem;
+            display: block;
+        }
+
+        /* ============ MOTIVATION BANNER ============ */
+        .motivation {
+            margin: 3rem 0;
+            background: linear-gradient(135deg, rgba(0,212,255,0.05), rgba(255,107,53,0.05));
+            border: 1px solid rgba(0,212,255,0.15);
+            border-left: 4px solid var(--accent2);
+            border-radius: 0 12px 12px 0;
+            padding: 2rem 2.5rem;
+            position: relative;
+            overflow: hidden;
+            animation: fadeSlideUp 1s 0.4s ease both;
+        }
+        .motivation::before {
+            content: '"';
+            position: absolute;
+            right: 1.5rem;
+            top: -1rem;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 10rem;
+            color: rgba(255,107,53,0.05);
+            line-height: 1;
+            pointer-events: none;
+        }
+        .motivation h3 {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent2);
+            text-transform: uppercase;
+            letter-spacing: 0.15em;
+            margin-bottom: 0.8rem;
+        }
+        .motivation p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: var(--text);
+            font-weight: 400;
+        }
+        .motivation strong { color: var(--accent3); }
+
+        /* ============ RULES SECTION ============ */
+        .section-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.2em;
+            margin-bottom: 1.2rem;
+            display: flex;
+            align-items: center;
+            gap: 0.8rem;
+        }
+        .section-label::after {
+            content: '';
+            flex: 1;
+            height: 1px;
+            background: linear-gradient(90deg, var(--border), transparent);
+        }
+
+        .rules-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 1rem;
+            margin-bottom: 4rem;
+            animation: fadeSlideUp 1s 0.5s ease both;
+        }
+        .rule-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            transition: all 0.35s cubic-bezier(0.34, 1.56, 0.64, 1);
+            position: relative;
+            overflow: hidden;
+        }
+        .rule-card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, transparent, rgba(0,212,255,0.03));
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .rule-card:hover {
+            transform: translateY(-4px) scale(1.02);
+            border-color: rgba(0,212,255,0.4);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 30px rgba(0,212,255,0.06);
+        }
+        .rule-card:hover::before { opacity: 1; }
+        .rule-icon {
+            font-size: 1.6rem;
+            flex-shrink: 0;
+            filter: drop-shadow(0 0 8px rgba(0,212,255,0.3));
+        }
+        .rule-text h4 {
+            font-size: 0.9rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+        .rule-text p {
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+
+        /* ============ FOLDER STRUCTURE ============ */
+        .structure-block {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.5rem 2rem;
+            margin-bottom: 4rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.82rem;
+            line-height: 1.9;
+            color: var(--muted);
+            position: relative;
+            overflow: hidden;
+            animation: fadeSlideUp 1s 0.6s ease both;
+        }
+        .structure-block::before {
+            content: 'REPO STRUCTURE';
+            position: absolute;
+            top: 1rem; right: 1.5rem;
+            font-size: 0.6rem;
+            letter-spacing: 0.15em;
+            color: rgba(0,212,255,0.25);
+        }
+        .structure-block .dir { color: var(--accent); }
+        .structure-block .file { color: var(--text); }
+        .structure-block .comment { color: rgba(90,143,168,0.5); }
+        .structure-block .highlight { color: var(--accent2); font-weight: 700; }
+
+        /* ============ PARTICIPANTS ============ */
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            margin-bottom: 2rem;
+        }
+        .section-title {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            color: var(--text);
+            line-height: 1;
+        }
+        .section-title span { color: var(--accent); }
+        .member-count-badge {
+            background: rgba(57,255,20,0.08);
+            border: 1px solid rgba(57,255,20,0.25);
+            border-radius: 100px;
+            padding: 0.4rem 1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--accent3);
+        }
+
+        .participants-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 1.2rem;
+            margin-bottom: 2rem;
+        }
+
+        /* PARTICIPANT CARD */
+        .card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+            animation: cardEntrance 0.6s ease both;
+            cursor: pointer;
+        }
+        .card::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(ellipse at 50% 0%, rgba(0,212,255,0.12), transparent 70%);
+            opacity: 0;
+            transition: opacity 0.4s;
+            pointer-events: none;
+        }
+        .card::after {
+            content: '';
+            position: absolute;
+            bottom: 0; left: 0; right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, var(--accent), var(--accent2));
+            transform: scaleX(0);
+            transform-origin: left;
+            transition: transform 0.4s ease;
+            pointer-events: none;
+        }
+        .card:hover {
+            transform: translateY(-8px) scale(1.03);
+            border-color: rgba(0,212,255,0.5);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.5), 0 0 40px rgba(0,212,255,0.08);
+        }
+        .card:hover::before { opacity: 1; }
+        .card:hover::after { transform: scaleX(1); }
+        .card:hover .card-avatar { animation: avatarBounce 0.5s ease; }
+
+        .card-number {
+            position: absolute;
+            top: 1rem; right: 1rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            color: rgba(90,143,168,0.4);
+        }
+        .card-avatar {
+            width: 64px; height: 64px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, rgba(0,212,255,0.2), rgba(255,107,53,0.2));
+            border: 2px solid rgba(0,212,255,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Bebas Neue', cursive;
+            font-size: 1.6rem;
+            color: var(--accent);
+            margin: 0 auto 1rem;
+            transition: all 0.3s;
+            position: relative;
+        }
+        .card:hover .card-avatar {
+            border-color: var(--accent);
+            box-shadow: 0 0 20px rgba(0,212,255,0.3);
+        }
+        .card-name {
+            font-weight: 600;
+            font-size: 1rem;
+            margin-bottom: 0.3rem;
+            color: var(--text);
+        }
+        .card-role {
+            font-size: 0.75rem;
+            color: var(--muted);
+            font-family: 'Space Mono', monospace;
+            margin-bottom: 1.2rem;
+        }
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(0,212,255,0.08);
+            border: 1px solid rgba(0,212,255,0.2);
+            border-radius: 100px;
+            padding: 0.45rem 1.1rem;
+            text-decoration: none;
+            color: var(--accent);
+            font-size: 0.78rem;
+            font-family: 'Space Mono', monospace;
+            transition: all 0.3s;
+        }
+        .card-link:hover {
+            background: rgba(0,212,255,0.18);
+            border-color: var(--accent);
+            box-shadow: 0 0 16px rgba(0,212,255,0.2);
+        }
+        .card-link svg { width: 12px; height: 12px; transition: transform 0.3s; }
+        .card-link:hover svg { transform: translate(2px, -2px); }
+
+        /* ADD YOUR CARD (CTA) */
+        .card-add {
+            background: transparent;
+            border: 2px dashed rgba(0,212,255,0.2);
+            border-radius: 16px;
+            padding: 1.8rem 1.5rem;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            cursor: none;
+            transition: all 0.4s ease;
+            text-align: center;
+            min-height: 220px;
+        }
+        .card-add:hover {
+            border-color: var(--accent3);
+            background: rgba(57,255,20,0.04);
+            transform: scale(1.02);
+        }
+        .card-add-icon {
+            width: 48px; height: 48px;
+            border-radius: 50%;
+            background: rgba(57,255,20,0.08);
+            border: 2px solid rgba(57,255,20,0.2);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            transition: all 0.3s;
+        }
+        .card-add:hover .card-add-icon {
+            background: rgba(57,255,20,0.15);
+            box-shadow: 0 0 20px rgba(57,255,20,0.2);
+            transform: rotate(90deg);
+        }
+        .card-add-text {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+        .card-add-text strong {
+            display: block;
+            color: var(--accent3);
+            font-size: 0.82rem;
+            margin-bottom: 0.3rem;
+        }
+
+        /* ============ CALL TO ACTION ============ */
+        .cta-section {
+            margin: 4rem 0;
+            background: linear-gradient(135deg, var(--surface) 0%, var(--surface2) 100%);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 600px;
+            height: 300px;
+            background: radial-gradient(ellipse, rgba(0,212,255,0.06), transparent 70%);
+            pointer-events: none;
+        }
+        .cta-section h2 {
+            font-family: 'Bebas Neue', cursive;
+            font-size: clamp(2rem, 4vw, 3.5rem);
+            margin-bottom: 1rem;
+        }
+        .cta-section h2 span { color: var(--accent2); }
+        .cta-section p {
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto 2rem;
+            line-height: 1.7;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: center;
+            gap: 0;
+            flex-wrap: wrap;
+            margin-bottom: 2.5rem;
+        }
+        .step {
+            padding: 1rem 1.5rem;
+            position: relative;
+            text-align: left;
+            max-width: 180px;
+        }
+        .step::after {
+            content: '→';
+            position: absolute;
+            right: -0.5rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--border);
+            font-size: 1.2rem;
+        }
+        .step:last-child::after { display: none; }
+        .step-num {
+            font-family: 'Bebas Neue', cursive;
+            font-size: 2.5rem;
+            color: var(--border);
+            line-height: 1;
+        }
+        .step-label {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+        .step-action {
+            font-size: 0.85rem;
+            color: var(--text);
+            margin-top: 0.2rem;
+            font-weight: 500;
+        }
+
+        .cta-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            background: linear-gradient(135deg, var(--accent), rgba(0,180,220,1));
+            color: var(--bg);
+            padding: 1rem 2.5rem;
+            border-radius: 100px;
+            font-weight: 700;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: none;
+            position: relative;
+            overflow: hidden;
+        }
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(255,255,255,0.1), transparent);
+            opacity: 0;
+            transition: opacity 0.3s;
+        }
+        .cta-button:hover {
+            box-shadow: 0 0 40px rgba(0,212,255,0.4), 0 10px 30px rgba(0,0,0,0.3);
+            transform: translateY(-2px);
+        }
+        .cta-button:hover::before { opacity: 1; }
+
+        /* ============ FOOTER ============ */
+        footer {
+            border-top: 1px solid var(--border);
+            padding: 2rem 0;
+            text-align: center;
+            margin-top: 4rem;
+        }
+        footer p {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.7rem;
+            color: rgba(90,143,168,0.4);
+            letter-spacing: 0.1em;
+        }
+        footer span { color: var(--accent); }
+
+        /* ============ ANIMATIONS ============ */
+        @keyframes fadeSlideDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeSlideUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes cardEntrance {
+            from { opacity: 0; transform: scale(0.9) translateY(10px); }
+            to { opacity: 1; transform: scale(1) translateY(0); }
+        }
+        @keyframes avatarBounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.15) rotate(-5deg); }
+        }
+
+        /* stagger cards */
+        .card:nth-child(1) { animation-delay: 0.7s; }
+        .card:nth-child(2) { animation-delay: 0.8s; }
+        .card-add { animation: fadeSlideUp 0.6s 0.9s ease both; }
+
+        /* ============ SCROLLING TICKER ============ */
+        .ticker-wrap {
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            padding: 0.7rem 0;
+            margin: 3rem 0;
+            position: relative;
+            z-index: 2;
+        }
+        .ticker {
+            display: flex;
+            gap: 0;
+            animation: ticker 30s linear infinite;
+            width: max-content;
+        }
+        .ticker-item {
+            white-space: nowrap;
+            padding: 0 3rem;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            color: var(--muted);
+            letter-spacing: 0.05em;
+        }
+        .ticker-item .dot { color: var(--accent2); margin-right: 0.5rem; }
+        @keyframes ticker {
+            from { transform: translateX(0); }
+            to { transform: translateX(-50%); }
+        }
+
+        /* ============ RESPONSIVE ============ */
+        @media (max-width: 768px) {
+            .stats-bar { gap: 0; }
+            .stat { padding: 1rem 1.5rem; }
+            .stat:first-child { border-radius: 8px 8px 0 0; border-right: 1px solid var(--border); border-bottom: none; }
+            .stat:last-child { border-radius: 0 0 8px 8px; }
+            .participants-grid { grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); }
+            .cta-section { padding: 2rem 1.5rem; }
+            .steps { gap: 0; }
+            .step { max-width: 140px; padding: 0.8rem 1rem; }
+            .rules-grid { grid-template-columns: 1fr 1fr; }
+            body { cursor: auto; }
+            .cursor, .cursor-ring { display: none; }
+        }
+        @media (max-width: 480px) {
+            .rules-grid { grid-template-columns: 1fr; }
+            .steps { flex-direction: column; align-items: center; }
+            .step::after { content: '↓'; right: auto; bottom: -0.5rem; top: auto; left: 50%; transform: translateX(-50%); }
+        }
+    </style>
 </head>
 <body>
-    <h1>DevOps Batch - Git Collaboration Project</h1>
-    <ul id="student-list">
-    </ul>
+
+    <!-- Custom Cursor -->
+    <div class="cursor" id="cursor"></div>
+    <div class="cursor-ring" id="cursorRing"></div>
+
+    <div class="container">
+
+        <!-- HEADER -->
+        <header>
+            <div class="header-badge">
+                <span class="badge-dot"></span>
+                Active Collaboration · 2026
+            </div>
+            <h1 class="hero-title">
+                <span class="line3">// DevOps Batch</span>
+                <span class="line1">Git</span>
+                <span class="line2">Collab</span>
+            </h1>
+            <p class="hero-sub">
+                A real-world Git collaboration project for <span>30 DevOps engineers</span>.
+                Fork it, branch it, own it. This is where your Git skills meet real teamwork.
+            </p>
+        </header>
+
+        <!-- STATS -->
+        <div class="stats-bar">
+            <div class="stat">
+                <span class="stat-value" data-count="30">0</span>
+                <span class="stat-label">Members</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" data-count="1">0</span>
+                <span class="stat-label">Committed</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" data-count="29">0</span>
+                <span class="stat-label">Waiting for you</span>
+            </div>
+            <div class="stat">
+                <span class="stat-value" data-count="2026">0</span>
+                <span class="stat-label">Batch Year</span>
+            </div>
+        </div>
+
+        <!-- TICKER -->
+        <div class="ticker-wrap">
+            <div class="ticker">
+                <span class="ticker-item"><span class="dot">◆</span> git clone → git branch → git add → git commit → git push → open PR</span>
+                <span class="ticker-item"><span class="dot">◆</span> Don't just watch others ship. YOU ship too. Every commit counts.</span>
+                <span class="ticker-item"><span class="dot">◆</span> git clone → git branch → git add → git commit → git push → open PR</span>
+                <span class="ticker-item"><span class="dot">◆</span> Don't just watch others ship. YOU ship too. Every commit counts.</span>
+                <span class="ticker-item"><span class="dot">◆</span> The best time to push was yesterday. The second best time is RIGHT NOW.</span>
+                <span class="ticker-item"><span class="dot">◆</span> The best time to push was yesterday. The second best time is RIGHT NOW.</span>
+            </div>
+        </div>
+
+        <!-- MOTIVATION -->
+        <div class="motivation">
+            <h3>⚡ Message to all 30 members</h3>
+            <p>
+                Right now, <strong>29 people are watching this page</strong> to see if you've added your card yet.
+                This isn't just a homework task — this is proof that you understand Git workflows, pull requests,
+                and collaborative development. <strong>Every senior DevOps engineer started exactly where you are.</strong>
+                Make your first real commit count. Your page. Your proof. Your career.
+            </p>
+        </div>
+
+        <!-- RULES -->
+        <div class="section-label">// Collaboration Rules</div>
+        <div class="rules-grid">
+            <div class="rule-card">
+                <div class="rule-icon">🚫</div>
+                <div class="rule-text">
+                    <h4>Don't Delete</h4>
+                    <p>Never remove or overwrite existing participant content. Respect your teammates' work.</p>
+                </div>
+            </div>
+            <div class="rule-card">
+                <div class="rule-icon">☝️</div>
+                <div class="rule-text">
+                    <h4>One Block Only</h4>
+                    <p>Add exactly one card with your name. Quality over quantity. Make it yours.</p>
+                </div>
+            </div>
+            <div class="rule-card">
+                <div class="rule-icon">🔒</div>
+                <div class="rule-text">
+                    <h4>Hands Off Others' Files</h4>
+                    <p>Edit only your own file inside <code>participants/</code>. Zero tolerance for edits to others' pages.</p>
+                </div>
+            </div>
+            <div class="rule-card">
+                <div class="rule-icon">📁</div>
+                <div class="rule-text">
+                    <h4>Right Folder</h4>
+                    <p>Your HTML page goes inside <code>participants/yourname.html</code>. Follow the structure.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- STRUCTURE -->
+        <div class="section-label">// Repo Structure</div>
+        <div class="structure-block">
+            <span class="dir">repo-root/</span><br>
+            ├── <span class="highlight">index.html</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># 🏠 Home page (this file — shared)</span><br>
+            ├── <span class="dir">participants/</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="comment"># 👥 Your individual pages live here</span><br>
+            │&nbsp;&nbsp;&nbsp;├── <span class="file">vignesh.html</span>&nbsp;&nbsp;&nbsp;<span class="comment"># ✅ Done!</span><br>
+            │&nbsp;&nbsp;&nbsp;├── <span class="highlight">yourname.html</span>&nbsp;&nbsp;<span class="comment"># ← ADD YOURS HERE</span><br>
+            │&nbsp;&nbsp;&nbsp;└── <span class="comment">...</span><br>
+            └── <span class="file">README.md</span>
+        </div>
+
+        <!-- PARTICIPANTS -->
+        <div class="section-header">
+            <h2 class="section-title">👥 Participants <span>Board</span></h2>
+            <span class="member-count-badge">1 / 30 shipped</span>
+        </div>
+
+        <div class="participants-grid">
+
+           <!-- Participant 1 — Vignesh -->
+            <div class="card" id="p-vignesh">
+                <span class="card-number">#01</span>
+                <div class="card-avatar">V</div>
+                <div class="card-name">Vignesh</div>
+                <div class="card-role">// First to ship 🚀</div>
+                <a href="./participants/vignesh.html" class="card-link">
+                    View Page
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M7 17L17 7M7 7h10v10"/></svg>
+                </a>
+            </div>
+
+            <!-- Future participants add their card above this line, following the same structure -->
+
+            <!-- YOUR TURN CTA CARD -->
+            <div class="card-add" onclick="document.getElementById('howto').scrollIntoView({behavior:'smooth'})">
+                <div class="card-add-icon">+</div>
+                <div class="card-add-text">
+                    <strong>Your card goes here</strong>
+                    Fork → Branch → Add your HTML → PR<br>
+                    29 spots remaining
+                </div>
+            </div>
+
+        </div>
+
+        <!-- HOW TO CONTRIBUTE -->
+        <div class="cta-section" id="howto">
+            <h2>Ready to <span>Ship</span> Your Card?</h2>
+            <p>Stop procrastinating. The repo is live, the team is watching. Four steps and you're done.</p>
+
+            <div class="steps">
+                <div class="step">
+                    <div class="step-num">01</div>
+                    <div class="step-label">Terminal</div>
+                    <div class="step-action">git clone / fork the repo</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">02</div>
+                    <div class="step-label">Branch</div>
+                    <div class="step-action">git checkout -b yourname</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">03</div>
+                    <div class="step-label">Create</div>
+                    <div class="step-action">Add your HTML in participants/</div>
+                </div>
+                <div class="step">
+                    <div class="step-num">04</div>
+                    <div class="step-label">Push & PR</div>
+                    <div class="step-action">Open a pull request ✅</div>
+                </div>
+            </div>
+
+            <a href="#" class="cta-button">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></svg>
+                Open on GitHub
+            </a>
+        </div>
+
+    </div>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="container">
+            <p>DevOps Batch 2026 · Git Collaboration Project · Made with <span>git push</span> and ☕</p>
+        </div>
+    </footer>
+
+    <script>
+        // ============ CUSTOM CURSOR ============
+        const cursor = document.getElementById('cursor');
+        const ring = document.getElementById('cursorRing');
+        let mouseX = 0, mouseY = 0, ringX = 0, ringY = 0;
+
+        document.addEventListener('mousemove', e => {
+            mouseX = e.clientX; mouseY = e.clientY;
+            cursor.style.left = mouseX - 6 + 'px';
+            cursor.style.top = mouseY - 6 + 'px';
+        });
+
+        function animateRing() {
+            ringX += (mouseX - ringX - 18) * 0.12;
+            ringY += (mouseY - ringY - 18) * 0.12;
+            ring.style.left = ringX + 'px';
+            ring.style.top = ringY + 'px';
+            requestAnimationFrame(animateRing);
+        }
+        animateRing();
+
+        document.querySelectorAll('a, .card, .card-add, .cta-button, .rule-card').forEach(el => {
+            el.addEventListener('mouseenter', () => { cursor.classList.add('hover'); ring.classList.add('hover'); });
+            el.addEventListener('mouseleave', () => { cursor.classList.remove('hover'); ring.classList.remove('hover'); });
+        });
+
+        // ============ COUNT-UP ANIMATION ============
+        function countUp(el) {
+            const target = parseInt(el.dataset.count);
+            const duration = 1500;
+            const start = performance.now();
+            const update = (now) => {
+                const elapsed = now - start;
+                const progress = Math.min(elapsed / duration, 1);
+                const ease = 1 - Math.pow(1 - progress, 3);
+                el.textContent = Math.round(ease * target).toLocaleString();
+                if (progress < 1) requestAnimationFrame(update);
+            };
+            requestAnimationFrame(update);
+        }
+
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => {
+                if (e.isIntersecting) {
+                    document.querySelectorAll('[data-count]').forEach(countUp);
+                    observer.disconnect();
+                }
+            });
+        }, { threshold: 0.3 });
+        document.querySelector('.stats-bar') && observer.observe(document.querySelector('.stats-bar'));
+
+        // ============ CARD HOVER SOUND FEEDBACK (visual) ============
+        document.querySelectorAll('.card').forEach(card => {
+            card.addEventListener('mousemove', e => {
+                const rect = card.getBoundingClientRect();
+                const x = (e.clientX - rect.left) / rect.width - 0.5;
+                const y = (e.clientY - rect.top) / rect.height - 0.5;
+                card.style.transform = `translateY(-8px) scale(1.03) rotateX(${-y * 6}deg) rotateY(${x * 6}deg)`;
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
+    </script>
 </body>
 </html>
+```

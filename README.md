@@ -1,6 +1,9 @@
 Project: “DevOps Student Portfolio Portal”
 🎯 Objective
 
+## Git Collaboration
+See `COLLABORATION.md` for participant contribution guidelines.
+
 Create a single shared GitHub repository where every student contributes their profile into a collaborative project — using proper Git branching and PR workflow.
 
 They will experience:
